@@ -1,4 +1,18 @@
-type Query {
-  hello: String!
-  add(x: Int!, y: Int!): Int!
+schema {
+  query: MyAPIQuery
+}
+
+type Film {
+  id: String!
+  title: String!
+  director: String!
+}
+
+type FilmList {
+  films: [Film!]!
+}
+
+type MyAPIQuery {
+  allFilms: FilmList!
+  ping(message: String!): String!
 }

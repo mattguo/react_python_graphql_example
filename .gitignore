@@ -112,6 +112,7 @@ dmypy.json
 # Frontend build outputs
 frontend/dist/
 frontend/build/
+frontend/dist-ssr/
 
 # Vite
 frontend/.vite/
@@ -245,3 +246,16 @@ temp/
 
 # GraphQL generated files (keep schema files)
 frontend/src/__generated__/
+
+# Package manager lock files - KEEP THESE
+# pnpm-lock.yaml - DO NOT IGNORE (ensures consistent dependencies)
+# package-lock.json - DO NOT IGNORE (if using npm)
+# yarn.lock - DO NOT IGNORE (if using yarn)
+
+# Frontend specific
+frontend/.vite/
+frontend/.eslintcache
+frontend/.prettiercache
+
+# Local development
+*.local

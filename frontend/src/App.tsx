@@ -1,30 +1,34 @@
 import { useState } from 'react';
 import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
 import './App.css';
 import FilmList from './FilmList';
+import { Container, Group, Button, Image, Stack } from '@mantine/core';
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
+    <Stack gap="xl">
       <FilmList />
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount(count => count + 1)}>
-          count is {count}
-        </button>
-      </div>
-    </>
+      <Container size="lg">
+        <Group justify="center" align="center" gap="md" wrap="nowrap">
+          <Image
+            src={reactLogo}
+            alt="React logo"
+            w={50}
+            h={50}
+            style={{ cursor: 'help' }}
+          />
+          <Button
+            onClick={() => setCount(count => count + 1)}
+            size="md"
+            variant="filled"
+          >
+            count is {count}
+          </Button>
+        </Group>
+      </Container>
+    </Stack>
   );
 }
 
