@@ -62,38 +62,38 @@ graphql_app = GraphQLRouter(schema)
 
 app = FastAPI()
 
-# 添加CORS中间件
+# Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origin_regex=r"http://localhost:\d+",  # 允许localhost任何端口
+    allow_origin_regex=r"http://localhost:\d+",  # Allow any localhost port
     allow_credentials=True,
-    allow_methods=["*"],  # 允许所有HTTP方法
-    allow_headers=["*"],  # 允许所有请求头
+    allow_methods=["*"],  # Allow all HTTP methods
+    allow_headers=["*"],  # Allow all request headers
 )
 
-# 构建前端路径
+# Build frontend path
 frontend_dist_path = Path(__file__).parent.parent / "frontend" / "dist"
 
-# 如果前端已构建，则服务静态文件
+# If frontend is built, serve static files
 if frontend_dist_path.exists():
-    # 服务静态文件（JS, CSS, 图片等）
+    # Serve static files (JS, CSS, images, etc.)
     app.mount("/assets", StaticFiles(directory=frontend_dist_path / "assets"), name="assets")
     
-    # 服务根路径下的静态文件
+    # Serve static files from root path
     app.mount("/static", StaticFiles(directory=frontend_dist_path), name="static")
     
-    # 处理所有其他路由，返回index.html（用于React Router）
+    # Handle all other routes, return index.html (for React Router)
     @app.get("/{full_path:path}")
     async def serve_frontend(full_path: str):
-        # 检查文件是否存在
+        # Check if file exists
         file_path = frontend_dist_path / full_path
         if file_path.exists() and file_path.is_file():
             return FileResponse(file_path)
         
-        # 否则返回index.html（用于SPA路由）
+        # Otherwise return index.html (for SPA routing)
         return FileResponse(frontend_dist_path / "index.html")
 else:
-    # 如果前端未构建，提供提示信息
+    # If frontend is not built, provide hint message
     @app.get("/")
     async def root():
         return {
@@ -101,5 +101,5 @@ else:
             "graphql_endpoint": "/graphql"
         }
 
-# 最后添加GraphQL路由，确保它不会被通配符路由拦截
+# Add GraphQL router last to ensure it's not intercepted by wildcard route
 app.include_router(graphql_app, prefix="/graphql")

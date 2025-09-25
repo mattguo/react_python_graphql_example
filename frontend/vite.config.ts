@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     port: 5173,
     proxy: {
-      // 代理所有 /graphql 请求到后端API
+      // Proxy all /graphql requests to backend API
       '/graphql': {
         target: 'http://localhost:9000',
         changeOrigin: true,
