@@ -41,7 +41,7 @@ export function AppWithThemeToggle() {
 
   return (
     <MantineProvider forceColorScheme={colorScheme}>
-      <Box pos="relative" w="100%" h="100vh">
+      <Box pos="relative" w="100%">
         <ActionIcon
           variant="transparent"
           aria-label="Settings"

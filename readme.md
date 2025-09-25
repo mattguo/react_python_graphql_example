@@ -2,13 +2,17 @@
 
 This project demonstrates a Web project of React frontend + Python backend communicating via GraphQL
 
+In this example, the frontend renders a Star War film list provided in [`api/main.py`](api/main.py)
+
+![Project Screenshot](frontend/src/assets/screenshot.png)
+
 ## frontend
 
-`/frontend` is a React + Relay + TypeScript project template
+[`frontend`](frontend/) is a React + Relay + TypeScript project template
 
 ## api
 
-`/api` is a python + FastAPI + Strawberry GraphQL server template
+[`api`](api/) is a python + FastAPI + Strawberry GraphQL server template
 
 
 ## Syncing GraphQL schema
@@ -61,5 +65,25 @@ npm run relay
 
 ## Production Environment
 
-Production environment still uses a single port:
+The production environment uses a single port (9000) to serve both frontend and backend.
+
+### Building for Production
+
+1. **Build Frontend**:
+   ```bash
+   cd frontend
+   npm run build
+   ```
+   This generates production files in `frontend/dist/` directory.
+
+2. **Start Production Server**:
+   ```bash
+   cd api
+   poetry run uvicorn main:app --host 0.0.0.0 --port 9000
+   ```
+
+### Access URLs
+
+- **Frontend**: http://localhost:9000/
+- **API**: http://localhost:9000/graphql
 
