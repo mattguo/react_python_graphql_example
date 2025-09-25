@@ -1,5 +1,5 @@
 {
-  "name": "choupi2-fullstack",
+  "name": "react_python_graphql_example",
   "version": "1.0.0",
   "description": "Full-stack application with React frontend and FastAPI backend",
   "scripts": {
