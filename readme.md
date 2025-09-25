@@ -31,8 +31,10 @@ npm run relay
 
 1. Start Backend API:
    ```bash
+   pip install poetry
+
    cd api
-   uvicorn main:app --reload --port 9000
+   poetry run uvicorn main:app --reload --port 9000
    ```
 
 2. Start Frontend Dev Server:

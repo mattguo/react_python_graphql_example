@@ -2,34 +2,34 @@
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## 代码格式化
+## Code Formatting
 
-项目已配置 Prettier 和 ESLint 进行代码格式化：
+The project is configured with Prettier and ESLint for code formatting:
 
-### 自动格式化
+### Auto Formatting
 
-- **保存时自动格式化**: 在 VS Code 中保存文件时会自动格式化代码
-- **ESLint 自动修复**: 保存时会自动修复可修复的 ESLint 错误
+- **Format on Save**: Code is automatically formatted when saving files in VS Code
+- **ESLint Auto Fix**: Automatically fixes fixable ESLint errors on save
 
-### 手动格式化命令
+### Manual Formatting Commands
 
 ```bash
-# 格式化所有文件
+# Format all files
 pnpm format
 
-# 检查代码格式
+# Check code formatting
 pnpm format:check
 
-# 运行 ESLint 检查
+# Run ESLint checks
 pnpm lint
 
-# 自动修复 ESLint 错误
+# Auto-fix ESLint errors
 pnpm lint:fix
 ```
 
-### 推荐 VS Code 扩展
+### Recommended VS Code Extensions
 
-项目已配置推荐扩展，VS Code 会自动提示安装：
+The project is configured with recommended extensions, VS Code will automatically prompt to install:
 
 - Prettier - Code formatter
 - ESLint
